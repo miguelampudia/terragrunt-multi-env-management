@@ -1,5 +1,5 @@
 terraform {
-  source = "git::git@github.com:sudheerduba/aws-vpc-network-terraform.git//modules?ref=v1.2.0"
+  source = "git::git@github.com:miguelampudia/aws-vpc-network-terraform.git//modules?ref=v1.2.0"
 }
 
 include "remote_state" {
