@@ -1,5 +1,6 @@
 terraform {
-  source = "git::git@github.com:miguelampudia/aws-vpc-network-terraform.git//modules?ref=v1.2.0"
+  #source = "git::git@github.com:miguelampudia/aws-vpc-network-terraform.git//modules?ref=v1.2.0"
+  source = "git::git@github.com:miguelampudia/aws-vpc-network-terraform.git//modules"
 }
 
 include "remote_state" {
@@ -16,7 +17,7 @@ inputs = {
   node_group_name     = "webapp-dev-01"
   node_role_name      = "NodeRole-dev"
   nodegroup_keypair   = "webapp-dev-01-key"
-  node_instance_types = "t2.micro"
+  node_instance_types = ["t2.micro"]
   cluster_role        = "AWSEKSClusterRole-dev"
   region_name         = local.region
   vpc_cidr_block      = "10.10.0.0/16"
