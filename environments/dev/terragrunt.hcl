@@ -11,14 +11,15 @@ locals {
 }
 
 inputs = {
-  environment       = "Developement"
-  eks_cluster_name  = "Dev-EKS-Demo"
-  node_group_name   = "webapp-dev-01"
-  node_role_name    = "NodeRole-dev"
-  nodegroup_keypair = "webapp-dev-01-key"
-  cluster_role      = "AWSEKSClusterRole-dev"
-  region_name       = local.region
-  vpc_cidr_block    = "10.10.0.0/16"
+  environment         = "Developement"
+  eks_cluster_name    = "Dev-EKS"
+  node_group_name     = "webapp-dev-01"
+  node_role_name      = "NodeRole-dev"
+  nodegroup_keypair   = "webapp-dev-01-key"
+  node_instance_types = "t2.micro"
+  cluster_role        = "AWSEKSClusterRole-dev"
+  region_name         = local.region
+  vpc_cidr_block      = "10.10.0.0/16"
   public_subnets = {
     "${local.region}a" = "10.10.0.0/24"
     "${local.region}b" = "10.10.2.0/24"

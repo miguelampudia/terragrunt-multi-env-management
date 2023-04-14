@@ -1,5 +1,5 @@
 terraform {
-  source = "git::git@github.com:sudheerduba/aws-vpc-network-terraform.git//modules?ref=v1.2.0"
+  source = "git::git@github.com:miguelampudia/aws-vpc-network-terraform.git//modules?ref=v1.2.0"
 }
 
 include "remote_state" {
@@ -11,14 +11,15 @@ locals {
 }
 
 inputs = {
-  environment       = "Staging"
-  eks_cluster_name  = "Stage-EKS-Demo"
-  node_group_name   = "webapp-stage-01"
-  node_role_name    = "NodeRole-stage"
-  nodegroup_keypair = "webapp-stage-01-key"
-  cluster_role      = "AWSEKSClusterRole-stage"
-  region_name       = local.region
-  vpc_cidr_block    = "10.20.0.0/16"
+  environment         = "Staging"
+  eks_cluster_name    = "Stage-EKS"
+  node_group_name     = "webapp-stage-01"
+  node_role_name      = "NodeRole-stage"
+  nodegroup_keypair   = "webapp-stage-01-key"
+  cluster_role        = "AWSEKSClusterRole-stage"
+  node_instance_types = "t2.micro"
+  region_name         = local.region
+  vpc_cidr_block      = "10.20.0.0/16"
   public_subnets = {
     "${local.region}a" = "10.20.0.0/24"
     "${local.region}b" = "10.20.2.0/24"
